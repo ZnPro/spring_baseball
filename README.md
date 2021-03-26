@@ -7,7 +7,6 @@
 - Spring Data JPA
 - MySQL Driver
 - Spring Web
-- oauth2-client
 
 ```xml
 <!-- JSP 템플릿 엔진, 안되면 9.0.43버전 이상 -->
@@ -72,10 +71,11 @@ create database baseball;
 ### 태그라이브러리
 ```jsp
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 ```
 
 ### 주의사항
-
 resoruces/static 폴더가 디폴트 경로
 이 경로를 제대로 확인 안해주면 style.css랑 image를 못 불러옴
+
+### 오류
+https://blog.naver.com/kjho1224/222287828698
