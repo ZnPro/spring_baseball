@@ -4,8 +4,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cos.baseball.domain.player.Player;
 import com.cos.baseball.domain.team.Team;
@@ -48,6 +51,12 @@ public class PlayerController {
 		List<PlayerPositionRespDto> dtos = playerService.포지션별선수리스트();
 		model.addAttribute("dtos", dtos);
 		return "player/positionList";
+	}
+	
+	@DeleteMapping("/player/{id}")
+	public @ResponseBody String delete(@PathVariable Integer id) {
+		playerService.삭제하기(id);
+		return "ok";
 	}
 
 }

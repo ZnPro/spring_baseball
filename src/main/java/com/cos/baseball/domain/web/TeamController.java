@@ -4,8 +4,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cos.baseball.domain.field.Field;
 import com.cos.baseball.domain.team.Team;
@@ -40,6 +43,12 @@ public class TeamController {
 		List<Team> teams = teamService.팀리스트();
 		model.addAttribute("teams", teams);
 		return "team/list";
+	}
+	
+	@DeleteMapping("/team/{id}")
+	public @ResponseBody String delete(@PathVariable Integer id) {
+		teamService.삭제하기(id);
+		return "ok";
 	}
 	
 	

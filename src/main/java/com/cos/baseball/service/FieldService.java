@@ -27,5 +27,10 @@ public class FieldService {
 	public List<Field> 야구장리스트(){
 		return fieldRepository.findAll();
 	}
+	
+	@Transactional
+	public void 삭제하기(Integer id) {
+		fieldRepository.deleteById(id);
+	}
 
 }

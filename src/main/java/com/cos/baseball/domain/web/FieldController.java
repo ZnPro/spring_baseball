@@ -4,8 +4,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cos.baseball.domain.field.Field;
 import com.cos.baseball.service.FieldService;
@@ -41,5 +44,11 @@ public class FieldController {
 		return "/field/list";
 	}
 	//야구장리스트를 FieldService에 만들러 간다.
+	
+	@DeleteMapping("/field/{id}")
+	public @ResponseBody String delete(@PathVariable Integer id) {
+		fieldService.삭제하기(id);
+		return "ok";
+	}
 
 }

@@ -17,13 +17,34 @@
       <c:forEach var="field" items="${fields}">
         <tr>
           <td>${field.id}</td>
-          <td>${field.fieldName}</td>
+          <td>${field.fieldName}
+          <button class="btn btn-danger" onClick="deleteField(${field.id})">삭제</button>
         </tr>
       </c:forEach>
     </tbody>
   </table>
-
 </div>
+
+<script>
+  function deleteField(id) {
+    console.log(id);
+    $.ajax({
+      method:"DELETE",
+      url: "/field/"+id
+    })
+    .done((data) => {
+      console.log(data);
+      if(data === "ok"){
+        $(".list-"+id).remove();
+      }
+    });
+    
+  }
+</script>
+
+
+
+
 
 </body>
 </html>

@@ -32,5 +32,10 @@ public class TeamService {
 	public List<Team> 팀리스트(){
 		return teamRepository.findAll();
 	}
+	
+	@Transactional
+	public void 삭제하기(Integer id) {
+		teamRepository.deleteById(id);
+	}
 
 }

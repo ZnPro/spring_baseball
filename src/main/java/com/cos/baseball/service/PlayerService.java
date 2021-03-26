@@ -54,5 +54,10 @@ public class PlayerService {
 		List<PlayerPositionRespDto> playerPositionRespDto = result.list(q, PlayerPositionRespDto.class);
 		return playerPositionRespDto;
 	}
+	
+	@Transactional
+	public void 삭제하기(Integer id) {
+		palyerRepository.deleteById(id);
+	}
 
 }
